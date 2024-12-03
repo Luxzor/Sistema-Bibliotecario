@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Puedes incluir aquí enlaces a CSS globales si es necesario -->
+</head>
+<body>
+    <!-- Navbar como un fragmento -->
+    <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">Sistema Bibliotecario</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Préstamos -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/lendings}">Préstamos</a>
+                    </li>
+                    
+                    <!-- Devoluciones -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/returns}">Devoluciones</a>
+                    </li>
+                    
+                    <!-- Usuarios -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/users}">Usuarios</a>
+                    </li>
+                    
+                    <!-- Libros -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/books}">Libros</a>
+                    </li>
+                    
+                    <!-- Reportes -->
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/reports}">Reportes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+</html>
