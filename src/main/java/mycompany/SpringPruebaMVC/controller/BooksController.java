@@ -1,7 +1,7 @@
-package mycompany.SpringPruebaMVC.controller;
+package Controller;
 
-import mycompany.SpringPruebaMVC.model.entities.Book;
-import mycompany.SpringPruebaMVC.model.services.BookService;
+import Model_Entities.Book;
+import Model_Services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,7 @@ public class BooksController {
 
     private final BookService bookService;
   private static final Logger logger = LoggerFactory.getLogger(BooksController.class);
-    @Autowired // Inyección de dependencias
+    @Autowired 
     public BooksController(BookService bookService) {
         this.bookService = bookService;
     }
@@ -57,7 +57,6 @@ public class BooksController {
     public String showEditForm(@PathVariable("id") Integer id, Model model) {
         Book book = bookService.findBookById(id);
         if (book == null) {
-            // Maneja el caso donde el libro no existe
             return "redirect:/books";
         }
         model.addAttribute("book", book);
@@ -65,8 +64,6 @@ public class BooksController {
     }
 
     // Eliminar un libro
-
-   
     @GetMapping("/delete/{id}")
     public String deleteBook(@PathVariable("id") Integer id) {
         bookService.deleteBook(id);
